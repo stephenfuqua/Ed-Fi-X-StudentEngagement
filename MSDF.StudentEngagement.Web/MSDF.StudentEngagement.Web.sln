@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSDF.StudentEngagement.Reso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSDF.StudentEngagement.Persistence", "MSDF.StudentEngagement.Persistence\MSDF.StudentEngagement.Persistence.csproj", "{BAC95A0E-688D-48F2-8AF2-12FE0223CD32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSDF.StudentEngagement.Web.Tests", "MSDF.StudentEngagement.Persistence.Tests\MSDF.StudentEngagement.Web.Tests.csproj", "{A915F666-8253-4735-BFA0-C1A02AB3418A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BAC95A0E-688D-48F2-8AF2-12FE0223CD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAC95A0E-688D-48F2-8AF2-12FE0223CD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAC95A0E-688D-48F2-8AF2-12FE0223CD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A915F666-8253-4735-BFA0-C1A02AB3418A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A915F666-8253-4735-BFA0-C1A02AB3418A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A915F666-8253-4735-BFA0-C1A02AB3418A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A915F666-8253-4735-BFA0-C1A02AB3418A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
