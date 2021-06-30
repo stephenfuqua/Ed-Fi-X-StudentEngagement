@@ -18,7 +18,7 @@ namespace MSDF.StudentEngagement.Persistence.Models
         [StringLength(255)]
         public string AppUrl { get; set; }
         [StringLength(255)]
-        public string WhitelistRegex { get; set; }
+        public string AllowlistRegex { get; set; }
         public bool TrackingEnabled { get; set; }        
     }
 }

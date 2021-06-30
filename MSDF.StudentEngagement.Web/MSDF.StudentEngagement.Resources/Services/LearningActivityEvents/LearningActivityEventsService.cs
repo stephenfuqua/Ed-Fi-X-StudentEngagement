@@ -29,7 +29,7 @@ namespace MSDF.StudentEngagement.Resources.Services.LearningActivityEvents
 
         public async Task SaveLearningActivityEventAsync(LearningActivityEventModel model)
         {
-            var learningApp = await _learningAppQueries.GetWhitelistedApp(model.LeaningAppUrl);
+            var learningApp = await _learningAppQueries.GetAllowedApp(model.LeaningAppUrl);
             StudentLearningEventLog entity = await MapToStudentLearningEventLog(model, learningApp);
             await _studentLearningEventLogCommands.AddAsync(entity);
         }
@@ -38,9 +38,9 @@ namespace MSDF.StudentEngagement.Resources.Services.LearningActivityEvents
         {
             foreach (var model in modelList)
             {
-                var whitelistedApp = await _learningAppQueries.GetWhitelistedApp(model.LeaningAppUrl);
-                if (null == whitelistedApp) { continue; }
-                var entity = await MapToStudentLearningEventLog(model, whitelistedApp);
+                var AllowlistedApp = await _learningAppQueries.GetAllowedApp(model.LeaningAppUrl);
+                if (null == AllowlistedApp) { continue; }
+                var entity = await MapToStudentLearningEventLog(model, AllowlistedApp);
                 await _studentLearningEventLogCommands.AddorUpdateAsync(entity);
             }
         }

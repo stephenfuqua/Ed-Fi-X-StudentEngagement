@@ -8,25 +8,25 @@ namespace MSDF.StudentEngagement.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WhitelistController : ControllerBase
+    public class AllowlistController : ControllerBase
     {
         private readonly ILearningAppQueries _learningAppQueries;
 
-        public WhitelistController(ILearningAppQueries learningAppQueries)
+        public AllowlistController(ILearningAppQueries learningAppQueries)
         {
             this._learningAppQueries = learningAppQueries;
         }
 
-        // GET: api/Whitelist
+        // GET: api/Allowlist
         [HttpGet]
         public async Task<string> Get()
         {
-            var whitelist = (await _learningAppQueries.GetAll())
-                .Select(la => new { app = la.LearningAppIdentifier, regex = la.WhitelistRegex })
+            var Allowlist = (await _learningAppQueries.GetAll())
+                .Select(la => new { app = la.LearningAppIdentifier, regex = la.AllowlistRegex })
                 .ToList();
 
-            var whitelistJson = JsonConvert.SerializeObject(whitelist);
-            return whitelistJson;
+            var AllowlistJson = JsonConvert.SerializeObject(Allowlist);
+            return AllowlistJson;
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using FakeItEasy;
 using MSDF.StudentEngagement.Persistence.CommandsAndQueries.Queries;
@@ -13,18 +10,18 @@ using Shouldly;
 namespace MSDF.StudentEngagement.Web.Tests.Controllers
 {
     [TestFixture]
-    public class WhitelistControllerTests
+    public class AllowlistControllerTests
     {
         public class WhenConstructingANewInstance
         {
             [Test]
             public void ItShouldNotThrowAnException()
             {
-                _ = new WhitelistController(A.Fake<ILearningAppQueries>());
+                _ = new AllowlistController(A.Fake<ILearningAppQueries>());
             }
         }
 
-        public class WhenGettingTheWhitelist
+        public class WhenGettingTheAllowlist
         {
             public class GivenThereAreNoItems
             {
@@ -37,7 +34,7 @@ namespace MSDF.StudentEngagement.Web.Tests.Controllers
                         Task.FromResult(new List<LearningApp>())
                     );
 
-                    var controller = new WhitelistController(queries);
+                    var controller = new AllowlistController(queries);
 
                     // Act
                     var result = await controller.Get();
@@ -57,12 +54,12 @@ namespace MSDF.StudentEngagement.Web.Tests.Controllers
                     A.CallTo(() => queries.GetAll()).Returns(
                         Task.FromResult(new List<LearningApp>()
                         {
-                            new LearningApp() {LearningAppIdentifier = "one", WhitelistRegex = "1"},
-                            new LearningApp() {LearningAppIdentifier = "two", WhitelistRegex ="2"}
+                            new LearningApp() {LearningAppIdentifier = "one", AllowlistRegex = "1"},
+                            new LearningApp() {LearningAppIdentifier = "two", AllowlistRegex ="2"}
                         })
                     );
 
-                    var controller = new WhitelistController(queries);
+                    var controller = new AllowlistController(queries);
 
                     // Act
                     var result = await controller.Get();

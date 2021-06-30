@@ -31,7 +31,7 @@ namespace MSDF.StudentEngagement.Persistence.EntityFramework
                     {
                         LearningAppIdentifier = "schoology",
                         AppUrl = "schoology.com",
-                        WhitelistRegex = @"^.*\.schoology.com\/.*",
+                        AllowlistRegex = @"^.*\.schoology.com\/.*",
                         TrackingEnabled = true
                     } 
                 });

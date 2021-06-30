@@ -11,7 +11,7 @@ namespace MSDF.StudentEngagement.Persistence.CommandsAndQueries.Queries
 {
     public interface ILearningAppQueries
     {
-        Task<LearningApp> GetWhitelistedApp(string url);
+        Task<LearningApp> GetAllowedApp(string url);
         Task<List<LearningApp>> GetAll();
     }
 
@@ -30,13 +30,13 @@ namespace MSDF.StudentEngagement.Persistence.CommandsAndQueries.Queries
                 .ToListAsync();
         }
 
-        public async Task<LearningApp> GetWhitelistedApp(string url)
+        public async Task<LearningApp> GetAllowedApp(string url)
         {
             var lApps = await _db.LearningApps
                 .ToListAsync();
             
             var lApp = lApps
-                .Where(la => Regex.IsMatch(url, la.WhitelistRegex) && la.TrackingEnabled)
+                .Where(la => Regex.IsMatch(url, la.AllowlistRegex) && la.TrackingEnabled)
                 .FirstOrDefault();
             return lApp;
         }
