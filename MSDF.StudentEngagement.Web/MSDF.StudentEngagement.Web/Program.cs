@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace MSDF.StudentEngagement.Web
 {
+ // this comment is just to try to trigger the pull request build.
     public class Program
     {
         public static void Main(string[] args)
