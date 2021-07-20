@@ -26,7 +26,7 @@ namespace MSDF.StudentEngagement.Web.Tests.Controllers
             public class GivenThereAreNoItems
             {
                 [Test]
-                public async Task ThenItShouldReturnAnEmptyJsonArray()
+                public void ThenItShouldReturnAnEmptyJsonArray()
                 {
                     // Arrange
                     var queries = A.Fake<ILearningAppQueries>();
@@ -37,7 +37,7 @@ namespace MSDF.StudentEngagement.Web.Tests.Controllers
                     var controller = new AllowlistController(queries);
 
                     // Act
-                    var result = await controller.Get();
+                    var result = controller.Get().Result;
 
                     // Assert
                     result.ShouldBe("[]");
