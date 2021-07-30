@@ -67,7 +67,7 @@ object CompileAndRunUnitTestsTemplate : Template({
     }
 
     vcs {
-        root(RelativeId("EdFiXStudentEngagement"))
+        root(DslContext.settingsRoot)
     }
 
     steps {
