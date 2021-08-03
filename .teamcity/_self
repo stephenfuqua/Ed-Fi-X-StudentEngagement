@@ -1,1 +1,74 @@
+version = "2021.1"
 
+project {
+
+    buildType(BuildAndTestPullRequest)
+    buildType(RestoreNugetAndRunUnit)
+
+    template(CompileAndRunUnitTestsTemplate)
+}
+
+object BuildAndTestPullRequest : BuildType({
+    templates(CompileAndRunUnitTestsTemplate)
+    name = "Build and test pull request"
+
+    triggers {
+        vcs {
+            id = "TRIGGER_5"
+            branchFilter = "+:refs/pull/*/head"
+        }
+    }
+})
+
+object RestoreNugetAndRunUnit : BuildType({
+    templates(CompileAndRunUnitTestsTemplate)
+    name = "Compile and Run Unit Tests"
+
+    triggers {
+        vcs {
+            id = "TRIGGER_4"
+            branchFilter = "+:<default>"
+        }
+    }
+})
+
+object CompileAndRunUnitTestsTemplate : Template({
+    name = "Compile and Run Unit Tests Template"
+
+    params {
+        param("StudentEngagement", "MSDF.StudentEngagement.Web.sln")
+    }
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        powerShell {
+            name = "Restore nuget packages"
+            id = "RUNNER_8"
+            formatStderrAsError = true
+            workingDir = "StudentEngagement"
+            scriptMode = script {
+                content = "%StudentEngagement%"
+            }
+        }
+        powerShell {
+            name = "Compile"
+            id = "RUNNER_9"
+            formatStderrAsError = true
+            workingDir = "StudentEngagement"
+            scriptMode = script {
+                content = "%StudentEngagement%"
+            }
+        }
+        powerShell {
+            name = "Run Unit Tests"
+            id = "RUNNER_10"
+            formatStderrAsError = true
+            workingDir = "StudentEngagement"
+            scriptMode = script {
+                content = "%StudentEngagement%"
+            }
+        }
+    }
