@@ -13,6 +13,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
     <PackageReference Include="shouldly" Version="4.0.3" />
+    <PackageReference Include="TeamCity.VSTest.TestAdapter" Version="1.0.26" />
   </ItemGroup>
 
   <ItemGroup>

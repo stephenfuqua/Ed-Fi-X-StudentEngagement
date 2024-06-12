@@ -26,6 +26,7 @@ namespace MSDF.StudentEngagement.Web.Controllers
                 .ToList();
 
             var AllowlistJson = JsonConvert.SerializeObject(Allowlist);
+            
             return AllowlistJson;
         }
     }
